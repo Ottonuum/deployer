@@ -1,0 +1,32 @@
+import: 
+  - recipe/laravel.php
+
+config:
+  repository: '{repo url !!ssh!!}'
+  keep_releases: 2
+
+hosts:
+  stage:
+    hostname: 'tak22nuum.itmajakas.ee '
+    http_user: virt118444
+    remote_user: virt118444
+    deploy_path: '~/domeenid/www.tak22nuum.itmajakas.ee/deployer'
+
+tasks:
+
+  opcache:clear:
+    - run: killall php84-cgi || true
+
+  deploy:
+    - 'deploy:prepare'
+    - 'deploy:vendors'
+    - 'artisan:storage:link'
+    - 'artisan:optimize:clear'
+    - 'artisan:optimize'
+    - 'deploy:publish'
+
+after:
+  deploy:failed: deploy:unlock
+
+before:
+  deploy:success: opcache:clear
