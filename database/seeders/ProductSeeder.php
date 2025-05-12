@@ -19,30 +19,35 @@ class ProductSeeder extends Seeder
                 'description' => 'A comfortable t-shirt featuring the Laravel logo. Made from 100% cotton.',
                 'price' => 29.99,
                 'stock_quantity' => 50,
+                'image' => "image.png",
             ],
             [
                 'name' => 'Laravel Mug',
                 'description' => 'A ceramic mug with the Laravel logo. Perfect for your morning coffee.',
                 'price' => 19.99,
                 'stock_quantity' => 30,
+                'image' => "image.png",
             ],
             [
                 'name' => 'Laravel Sticker Pack',
                 'description' => 'A set of high-quality stickers featuring Laravel-related designs.',
                 'price' => 9.99,
                 'stock_quantity' => 100,
+                'image' => "image.png",
             ],
             [
                 'name' => 'Laravel Hoodie',
                 'description' => 'A warm and cozy hoodie with the Laravel logo. Perfect for coding sessions.',
                 'price' => 49.99,
                 'stock_quantity' => 25,
+                'image' => "image.png",
             ],
             [
                 'name' => 'Laravel Notebook',
                 'description' => 'A premium notebook with the Laravel logo. Great for planning and note-taking.',
                 'price' => 14.99,
                 'stock_quantity' => 40,
+                'image' => "image.png",
             ],
         ];
 
