@@ -14,8 +14,7 @@
             <p>{{ $product->description }}</p>
             <p><strong>Stock: {{ $product->stock_quantity }}</strong></p>
             @if($product->image)
-                <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top" alt="{{ $product->name }}">
-            @endif
+            <img src="{{ asset('storage/image.png') }}" alt="Image">
             @auth
                 <form action="{{ route('cart.add', $product) }}" method="POST" class="mt-4">
                     @csrf
