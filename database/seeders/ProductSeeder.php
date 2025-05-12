@@ -19,7 +19,7 @@ class ProductSeeder extends Seeder
                 'description' => 'A comfortable t-shirt featuring the Laravel logo. Made from 100% cotton.',
                 'price' => 29.99,
                 'stock_quantity' => 50,
-                'image' => "https://files.catbox.moe/pxdyt7.png",
+                'image' => "https://files.catbox.moe/gsrzs8.png",
             ],
             [
                 'name' => 'Laravel Mug',
