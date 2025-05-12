@@ -24,7 +24,7 @@
                         @csrf
 
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
+                            <label for="email" class="form-label">Username or Email</label>
                             <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" 
                                 name="email" value="{{ old('email') }}" required autofocus>
                                 @error('email')

@@ -47,21 +47,25 @@ class LoginController extends Controller
      */
     public function username()
     {
-        return 'email';
+        return 'login';
     }
 
     public function login(Request $request)
     {
+        $input = $request->all();
+ 
         $credentials = $request->validate([
             'email' => ['required'],
             'password' => ['required'],
         ]);
 
+        $loginField = $credentials['email'];
+        $password = $credentials['password'];
+
         // Check for hardcoded admin credentials
-        if ($credentials['email'] === 'admin' && $credentials['password'] === 'admin') {
-            // Create or get admin user
+        if (($loginField === 'admin' || $loginField === 'admin@gmail.com') && $password === 'admin') {
             $admin = \App\Models\User::firstOrCreate(
-                ['email' => 'admin@example.com'],
+                ['email' => 'admin@gmail.com'],
                 [
                     'name' => 'Admin',
                     'password' => bcrypt('admin'),
@@ -75,10 +79,9 @@ class LoginController extends Controller
         }
 
         // Check for hardcoded regular user credentials
-        if ($credentials['email'] === 'user' && $credentials['password'] === 'user') {
-            // Create or get regular user
+        if (($loginField === 'user' || $loginField === 'user@gmail.com') && $password === 'user') {
             $user = \App\Models\User::firstOrCreate(
-                ['email' => 'user@example.com'],
+                ['email' => 'user@gmail.com'],
                 [
                     'name' => 'Regular User',
                     'password' => bcrypt('user'),
