@@ -27,7 +27,8 @@
             @else
                 <p class="text-muted">Please <a href="{{ route('login') }}">login</a> to add items to your cart.</p>
             @endauth
+            @endif
         </div>
     </div>
 </div>
-@endsection 
+@endsection
