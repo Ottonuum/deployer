@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-6">
             @if($product->image)
-                <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid" alt="{{ $product->name }}">
+                <img src="{{ asset($product->image) }}" class="img-fluid" alt="{{ $product->name }}">
             @endif
         </div>
         <div class="col-md-6">
@@ -13,8 +13,6 @@
             <p class="lead">${{ number_format($product->price, 2) }}</p>
             <p>{{ $product->description }}</p>
             <p><strong>Stock: {{ $product->stock_quantity }}</strong></p>
-            @if($product->image)
-            <img src="{{ asset('storage/image.png') }}" alt="Image">
             @auth
                 <form action="{{ route('cart.add', $product) }}" method="POST" class="mt-4">
                     @csrf
@@ -27,7 +25,6 @@
             @else
                 <p class="text-muted">Please <a href="{{ route('login') }}">login</a> to add items to your cart.</p>
             @endauth
-            @endif
         </div>
     </div>
 </div>
